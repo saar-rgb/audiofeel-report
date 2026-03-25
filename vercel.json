@@ -1,0 +1,16 @@
+{
+  "buildCommand": "",
+  "outputDirectory": "",
+  "rewrites": [
+    { "source": "/api/data", "destination": "/api/data.py" }
+  ],
+  "headers": [
+    {
+      "source": "/api/data",
+      "headers": [
+        { "key": "Cache-Control", "value": "s-maxage=300, stale-while-revalidate=60" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}
