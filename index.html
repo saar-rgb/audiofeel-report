@@ -47,7 +47,7 @@ body {
 
 /* KPI Cards */
 .kpi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 24px; }
-@media(min-width:768px) { .kpi-grid { grid-template-columns: repeat(5, 1fr); } }
+@media(min-width:768px) { .kpi-grid { grid-template-columns: repeat(6, 1fr); } }
 .kpi-card {
   background: #fff; border-radius: 16px; padding: 20px;
   border: 1px solid #f1f5f9; position: relative; overflow: hidden;
@@ -499,7 +499,13 @@ function renderKPI(totals) {
       <div class="accent" style="background:linear-gradient(to left,#d97706,#f59e0b)"></div>
       <div class="kpi-label">AOV</div>
       <div class="kpi-value num" style="color:#d97706">${totals.orders > 0 ? fmtCurrency(totals.revenue / totals.orders) : '\u2014'}</div>
-      <div class="kpi-sub num">CPA ${totals.orders > 0 ? fmtCurrency(totals.cpa) : '\u2014'}</div>
+      <div class="kpi-sub num">${totals.orders > 0 ? fmtNum(totals.orders) : '0'} / ${totals.days || 0} \u05D9\u05D5\u05DD</div>
+    </div>
+    <div class="kpi-card">
+      <div class="accent" style="background:linear-gradient(to left,#ef4444,#f87171)"></div>
+      <div class="kpi-label">CPA</div>
+      <div class="kpi-value num" style="color:#ef4444">${totals.orders > 0 ? fmtCurrency(totals.cpa) : '\u2014'}</div>
+      <div class="kpi-sub num">\u05D4\u05D5\u05E6\u05D0\u05D5\u05EA / \u05D4\u05D6\u05DE\u05E0\u05D4</div>
     </div>
     <div class="kpi-card">
       <div class="accent" style="background:linear-gradient(to left,#f59e0b,#fbbf24)"></div>
